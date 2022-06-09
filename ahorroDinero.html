@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHORRO DINERO</title>
+</head>
+<body>
+    <header>
+        <h1>PROYECCIÓN EN AÑOS DE AHORRO DE DINERO</h1>
+        <p>En esta aplicación, puedes conocer cuánto dinero ahorrías en una cantidad de años si cumples un ahorro programado del 20% de tu salario, siempre y cuando tu salario y tu ahorro se mantengan constantes durantes los años que quieras proyectar</p>
+    </header>
+
+    <section>
+        <form action="">
+            <label for="inputSalario">Ingrese su Salario</label>
+            <input type="number" id="inputSalario">
+
+            <label for="anios">Ingrese la cantidad de años a consultar</label>
+            <input type="number" id="inputAnios">
+
+            <button type="button" onclick="calculoDeAhorro()">Calcular Ahorro</button>
+        </form>
+    </section>
+
+    <section>
+        <p id="parrafoResultadoCalculoAhorro"></p>
+    </section>
+
+    <script src="./ahorroDinero.js"></script>
+    
+</body>
+</html>
