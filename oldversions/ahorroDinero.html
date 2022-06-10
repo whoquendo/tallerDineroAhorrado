@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./ahorroDinero.css">
+    <title>AHORRO DINERO</title>
+</head>
+<body>
+
+    <div class="container">
+    <header class="header">
+
+        <img src="./assets/save_logo.jepg" class="logo" alt="logo">
+
+        <h1>PROYECCIÓN DE AHORRO DE DINERO</h1>
+
+        <p>En esta aplicación, puedes conocer cuánto dinero ahorrías en una cantidad de años si cumples un ahorro programado del 20% de tu salario, siempre y cuando tu salario y tu ahorro se mantengan constantes durantes los años que quieras proyectar</p>
+    </header>
+
+
+    <section class="container-form">
+        <form class="form">
+            <label for="inputSalario" class="label">Ingrese su Salario</label>
+            <input type="number" id="inputSalario" class="input">
+
+            <label for="anios" class="label">Ingrese la cantidad de años a consultar</label>
+            <input type="number" id="inputAnios" class="input">
+
+            <button type="button" class="buttonCalcular" onclick="calculoDeAhorro()">Calcular Ahorro</button>
+        </form>
+    </section>
+
+
+
+    <section class="resultado">
+        <p id="parrafoResultadoCalculoAhorro"></p>
+    </section>
+</div>
+</body>
+
+<script src="./ahorroDinero.js"></script>
+</html>
