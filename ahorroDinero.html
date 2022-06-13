@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./ahorroDinero.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Ahorro de Dinero</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+  
+            <img src="./assets/save_logo.jpg" alt="logo" class="logo">
+            <h1 class="tittle">PROYECCIÓN DE AHORRO DE DINERO</h1>
+        </div>
+            <div class="parrafoTittle">
+            <p>En esta aplicación, puedes conocer:<br>
+            </p>
+                <!-- 1. cuánto dinero ahorrías en una cantidad de años si cumples un ahorro programado del 20% de tu salario en EUROS.*<br>
+                2.conocer cuánto dinero en pesos COLOMBIANOS ahorrías en una cantidad de años si cumples un ahorro programado del 20% de tu salario en EUROS.*<br>
+                3.conocer cuántos años tardarías en ahorrar una cantidad de dinero en pesos COLOMBIANOS, ahorrando una cantidad de EUROS mensual.*<br>
+                4.conocer cuánto porcentaje de tu salario debes ahorrar si quieres alcanzar la meta de una cantidad de dinero ahorrado en una cantidad de años.*<br>
+                *siempre y cuando tu salario y tu ahorro se mantengan constantes durantes los años que quieras proyectar</p><br> -->
+            </div>
+            
+            <div class="grid-container">
+                <div class="grid-item">
+            <p class="parrafo">Dinero que ahorrías en una cantidad de años si cumples un ahorro programado del 20% de tu salario en EUROS.</p>
+            <form action="/" class="form">
+                <label for="inputSalario" class="label">Ingrese su Salario</label>
+                <input type="number" id="inputSalario" class="input" placeholder="€ Ingrese datos en EUROS">
+
+                <label for="inputAnios" class="label">Ingrese la cantidad de años a consultar</label>
+                <input type="number" id="inputAnios" class="input" placeholder="Ingrese número de años a ahorrar">
+
+               <button type="button" class="primary-button calcular-button" onclick="calculoDeAhorro()">Calcular Ahorro</button>            
+            </form>
+            </div>
+
+         <div class="grid-item">
+            <p class="parrafo">Dinero en pesos COLOMBIANOS que ahorrías en una cantidad de años si cumples un ahorro programado del 20% de tu salario en EUROS.</p>
+            <form action="/" class="form">
+                <label for="inputSalario2" class="label">Ingrese su Salario</label>
+                <input type="number" id="inputSalario2" class="input" placeholder="€ Ingrese datos en EUROS">
+
+                <label for="inputAnios2" class="label">Ingrese la cantidad de años a consultar</label>
+                <input type="number" id="inputAnios2" class="input" placeholder="Ingrese número de años a ahorrar">
+
+               <button type="button" class="primary-button calcular-button" onclick="calcularAhorroEnPesos()">Calcular Ahorro</button>            
+            </form>
+            </div>
+
+         <div class="grid-item">
+            <p class="parrafo">Años que tardarías en ahorrar una cantidad de dinero en pesos COLOMBIANOS, ahorrando una cantidad de EUROS mensual</p>
+            <form action="/" class="form">
+                <label for="inputAhorro" class="label">Dinero en pesos que quieres ahorrar</label>
+                <input type="number" id="inputAhorro" class="input" placeholder="$ Ingrese datos en pesos">
+
+                <label for="inputEuros" class="label">Ingrese la cantidad de Euros a ahorrar</label>
+                <input type="number" id="inputEuros" class="input" placeholder="€ Ingrese datos en EUROS">
+
+               <button type="button" class="primary-button calcular-button" onclick="calcularAhorroEnPesosAños()">Calcular Ahorro</button>            
+            </form>
+         </div>
+
+            <div class="grid-item">
+            <p class="parrafo">Porcentaje de tu salario, en EUROS, que debes ahorrar, si quieres alcanzar la meta de una cantidad de dinero en pesos COLOMBIANOS ahorrado en una cantidad de años.</p>
+            <form action="/" class="form">
+                <label for="inputAhorroTotal" class="label">Ingrese Dinero que quieres ahorrar</label>
+                <input type="number" id="inputAhorroTotal" class="input" placeholder="$ Ingrese datos en pesos">
+
+                <label for="inputSalarioEuros" class="label">Ingrese su Salario</label>
+                <input type="number" id="inputSalarioEuros" class="input" placeholder="€ Ingrese datos en EUROS">
+
+                <label for="inputAniosAhorroFinal" class="label">Ingrese la cantidad de años a consultar</label>
+                <input type="number" id="inputAniosAhorroFinal" class="input" placeholder="Ingrese número de años a ahorrar">
+
+               <button type="button" class="primary-button calcular-button" onclick="calcularAhorroEnPorcentaje()">Calcular Ahorro</button>            
+            </form>
+         </div>
+
+            </div>
+          
+            <section class="resultado">
+                <p id="parrafoResultadoCalculoAhorro"></p>
+            </section>
+        </div>
+    </div>
+    
+</body>
+<script src="./ahorroDinero.js"></script>
+</html>
