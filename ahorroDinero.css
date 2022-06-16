@@ -18,7 +18,6 @@
     .grid-container {
        flex-direction: column;
        place-items: center;
-       align-items: stretch;
     }
 }
 
