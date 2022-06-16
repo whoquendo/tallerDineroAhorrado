@@ -14,13 +14,13 @@
     --xl: 22px;
 }
 
-@media (max-width:640px){
+/* @media (max-width:640px){
     .grid-container {
        flex-direction: column;
        place-items: center;
        align-items: stretch;
     }
-}
+} */
 
     body {
         margin: 0;
