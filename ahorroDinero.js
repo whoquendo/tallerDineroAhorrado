@@ -24,6 +24,35 @@ function calcularPesosEnEuros(eurosAConvertir){
     
 };
 
+//Helper, función para ventana modal de resultado de consultas
+
+function abrirVentanaModal (){
+    // Get the modal
+var modal = document.getElementById("myModal");
+
+// When the user clicks on the button, open the modal
+
+modal.style.display = "block";
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal) {
+  modal.style.display = "none";
+}
+};
+
+};
+
+
 //porcentaje de ahorro
 let porcentajeAhorro = 20;
 
@@ -40,8 +69,9 @@ function calculoDeAhorro(){
     const ahorroFinal = calcularAhorro (ahorroMensual,aniosIngresadoValue);
 
     const resultadoParrafo = document.getElementById("parrafoResultadoCalculoAhorro");
-    resultadoParrafo.innerText = "El dinero que ahorraría en "  +  aniosIngresadoValue + " Años es: "  + ahorroFinal;
+    resultadoParrafo.innerText = "El dinero que ahorraría en "  +  aniosIngresadoValue + " Años es: "  + ahorroFinal + " EUROS (€)";
     
+    abrirVentanaModal();
 };
 
   
@@ -60,8 +90,13 @@ function calcularAhorroEnPesos(){
     const ahorroFinalEnPesos = calcularPesosEnEuros(ahorroFinal);
 
     const resultadoParrafo = document.getElementById("parrafoResultadoCalculoAhorro");
-    resultadoParrafo.innerText = "El dinero, en PESOS COLOMBIANOS, que ahorraría en "  +  aniosIngresadoValue + " Años es: "  + ahorroFinalEnPesos;
+    resultadoParrafo.innerText = "El dinero, en PESOS COLOMBIANOS, que ahorraría en "  +  aniosIngresadoValue + " Años es: $ "  + ahorroFinalEnPesos;
+
+    abrirVentanaModal();
 };
+
+
+    
 
 // calcular Anos en ahorro, Funcion que se inicia cuando el usuario da click en el boton function calcularAhorroEnPesosAños(){
 
@@ -78,6 +113,8 @@ function calcularAhorroEnPesosAños(){
 
     const resultadoParrafo = document.getElementById("parrafoResultadoCalculoAhorro");
     resultadoParrafo.innerText = "Los años que tardarías en ahorrar "  +  ahorroEnPesosValue + " Pesos Colombianos es: "  + aniosAhorrando + " Años";
+
+    abrirVentanaModal();
 };
 
 // calcular el porcentaje de ahorro del salario que debo ahorrrar, Funcion que se inicia cuando el usuario da click en el boton calcularAhorroEnPorcentaje
@@ -98,10 +135,10 @@ function calcularAhorroEnPorcentaje(){
     const salarioEnPesosMensual = calcularPesosEnEuros(salarioEurosAPesosValue);
 
     const porcentajeAhorroMetaFinal = ((ahorroPesosFinalMensual * 100) / salarioEnPesosMensual);
-
     const resultadoParrafo = document.getElementById("parrafoResultadoCalculoAhorro");
-    resultadoParrafo.innerText = "El porcentaje de tu salario "  +  salarioEurosAPesosValue + " Euros, que debes ahorrar para alcanzar la meta de "  + ahorroPesosAnualValue + " Pesos Colombianos es el: " + porcentajeAhorroMetaFinal + "%";
-};
 
+    resultadoParrafo.innerText = "El porcentaje de tu salario "  +  salarioEurosAPesosValue + " Euros, que debes ahorrar para alcanzar la meta de "  + ahorroPesosAnualValue + " Pesos Colombianos es del: " + porcentajeAhorroMetaFinal + "%";
 
+    abrirVentanaModal();
 
+    };
