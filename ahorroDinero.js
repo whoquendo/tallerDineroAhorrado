@@ -143,6 +143,8 @@ function calcularAhorroEnPorcentaje(){
 
     };
 
+
+    // Para el accordion
     var acc = document.getElementsByClassName("accordion");
 var i;
 
