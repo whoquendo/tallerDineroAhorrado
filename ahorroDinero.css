@@ -133,6 +133,18 @@
     
   }
 
+
+  .accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: inherit;
+  }
+  
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
     .parrafo{
         font-size: var(--md);
         font-weight: 300px;
@@ -260,18 +272,7 @@
             font-size: var(--lg);
         }
 
-
-        .accordion:after {
-            content: '\02795'; /* Unicode character for "plus" sign (+) */
-            font-size: 13px;
-            color: #777;
-            float: inherit;
-          }
-          
-          .active:after {
-            content: "\2796"; /* Unicode character for "minus" sign (-) */
-          }
-        
+      
         /* Responsive */
         
         @media (max-width:640px){
