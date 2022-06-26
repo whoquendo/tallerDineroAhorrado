@@ -20,19 +20,25 @@
     </nav>
 
        <div class="container">
-        <!-- <div class="form-container">
-  
+        <div class="notas">
+            <p>Los cálculos se hacen con TRM de $ 4.346,27</p>
+            <p>Todos los datos ingresados para los cálculos se consideran fijos en el tiempo</p>
+           <div class="converterEuros">
+            <h3>Conversor de Euros a Pesos Colombianos</h3>
+            <p>
+                <label>Euros</label>
+                <input id="inputEurosToConverter" type="number" placeholder="Cantidad de EUROS"
+                oninput="euroConverter(this.value)" onchange="euroConverter(this.value)">
+              </p>
+              <p>Pesos colombianos $: <span id="outputPesos"></span></p>
             
-            <h1 class="tittle">PROYECCIÓN DE AHORRO DE DINERO</h1>
-        </div> -->
+
+           </div>
+            
+
+        </div>
             <div class="parrafoTittle">
             <p>En esta aplicación, puedes conocer: <br>
-                <!-- <ol>
-                    <a href="#inputSalario"><li>La cantidad de ahorro, en Euros, que tendrías en determinado tiempo si ahorras el 20% de tu salario en Euros</li></a>
-                    <a href="#inputSalario2"><li>La cantidad de ahorro, en Pesos colombianos, que tendrías en determinado tiempo si ahorras el 20% de tu salario en Euros</li></a>
-                    <a href="#inputAhorro"><li>Los años que tardarías en ahorrar una cantidad de dinero en pesos colombianos ahorrando una cantidad de Euros Mensual</li></a>
-                    <a href="#inputAhorroTotal"><li>El porcentaje de tu salario en Euros que debes ahorrar para cumplir tu meta de ahorro en Pesos colombianos</li></a>
-                </ol> -->
             </p>
             </div>
             
@@ -102,6 +108,26 @@
             </form>
          </div>
 
+
+         
+         <div class="grid-item">
+            <button class="accordion">
+        <p class="parrafo">Cantidad mínima de Salario, en Euros, que debes ganar para alcanzar tu meta</p> 
+        </button>
+        <form action="/" class="form panel">
+            <label for="inputAhorroTotal2" class="label">Ingrese Dinero que quieres ahorrar ($)</label>
+            <input type="number" id="inputAhorroTotal2" class="input" placeholder="$ Ingrese datos en pesos">
+
+            <label for="inputGastosEuros" class="label">Ingrese total de gastos mensuales (€)</label>
+            <input type="number" id="inputGastosEuros" class="input" placeholder="€ Ingrese datos en EUROS">
+
+            <label for="inputAniosAhorroFinal2" class="label">Ingrese la cantidad de años a consultar</label>
+            <input type="number" id="inputAniosAhorroFinal2" class="input" placeholder="Ingrese número de años a ahorrar">
+
+           <button type="button" class="primary-button calcular-button" id="myBtn" onclick="calcularSalarioMinimo()">Calcular Ahorro</button>            
+        </form>
+     </div>
+
             </div>
           
             <section class="resultado modal" id="myModal">
@@ -118,19 +144,6 @@
             </footer>
         </div>
     </div>
-
-    <!-- Trigger/Open The Modal -->
-<!-- <button id="myBtn">Open Modal</button> -->
-
-
-        <!-- The Modal -->
-        <!-- <div id="myModal" class="modal">
-
-        <div class="content-modal">
-            <span class="close">&times;</span>
-            <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-    </div> -->
     
 
 </body>

@@ -17,12 +17,25 @@ function calcularAhorro (dineroAhorrado,aniosAhorro){
 
 //Helper, función para convertir euros a pesos.
 function calcularPesosEnEuros(eurosAConvertir){
-    let constEuro = 4081.28;
+    let constEuro = 4346.27;
     const euros = (eurosAConvertir * constEuro);
-    return euros;
-    console.log(euros);
-    
+    return euros;    
 };
+
+//Helper, función para convertir pesos a euros.
+function calcularEurosenPesos(pesosAConvertir){
+    let constEuro = 4081.28;
+    constEuroFormateado = formatoResultado(constEuro);
+    const euros = (pesosAConvertir / constEuro);
+    return euros;    
+};
+
+//Helper función para dar formato a resultado de calculos con separador de miles.
+
+function formatoResultado(resultado){
+    const numeroFormateado  = new Intl.NumberFormat().format(resultado); 
+    return numeroFormateado; 
+}
 
 //Helper, función para ventana modal de resultado de consultas
 
@@ -52,7 +65,6 @@ if (event.target == modal) {
 
 };
 
-
 //porcentaje de ahorro
 let porcentajeAhorro = 20;
 
@@ -67,9 +79,10 @@ function calculoDeAhorro(){
 
     const ahorroMensual = calcularPorcentajeAhorro (salarioIngresadoValue);
     const ahorroFinal = calcularAhorro (ahorroMensual,aniosIngresadoValue);
+    const ahorroFinalFormateado = formatoResultado(Math.round(ahorroFinal));
 
     const resultadoParrafo = document.getElementById("parrafoResultadoCalculoAhorro");
-    resultadoParrafo.innerText = "El dinero que ahorraría en "  +  aniosIngresadoValue + " Años es: "  + ahorroFinal + " EUROS (€)";
+    resultadoParrafo.innerText = "El dinero que ahorraría en "  +  aniosIngresadoValue + " Años es: "  + ahorroFinalFormateado + " EUROS (€)";
     
     abrirVentanaModal();
 };
@@ -85,18 +98,16 @@ function calcularAhorroEnPesos(){
     const aniosIngresadoValue = aniosIngresado.value;
 
     const ahorroMensual = calcularPorcentajeAhorro (salarioIngresadoValue);
-    const ahorroFinal = calcularAhorro (ahorroMensual,aniosIngresadoValue);
+    const ahorroFinal =  calcularAhorro (ahorroMensual,aniosIngresadoValue);
 
     const ahorroFinalEnPesos = calcularPesosEnEuros(ahorroFinal);
+    const ahorroFinalEnPesosFormateado = formatoResultado(Math.round(ahorroFinalEnPesos));
 
     const resultadoParrafo = document.getElementById("parrafoResultadoCalculoAhorro");
-    resultadoParrafo.innerText = "El dinero, en PESOS COLOMBIANOS, que ahorraría en "  +  aniosIngresadoValue + " Años es: $ "  + ahorroFinalEnPesos;
+    resultadoParrafo.innerText = "El dinero, en PESOS COLOMBIANOS, que ahorraría en "  +  aniosIngresadoValue + " Años es: $ "  + ahorroFinalEnPesosFormateado;
 
     abrirVentanaModal();
 };
-
-
-    
 
 // calcular Anos en ahorro, Funcion que se inicia cuando el usuario da click en el boton function calcularAhorroEnPesosAños(){
 
@@ -109,10 +120,14 @@ function calcularAhorroEnPesosAños(){
 
     const ahorroEnPesos = document.getElementById("inputAhorro");
     const ahorroEnPesosValue = ahorroEnPesos.value;
+    const ahorroEnPesosValueFormateado = formatoResultado(ahorroEnPesosValue);
+
     const aniosAhorrando = (ahorroEnPesosValue / ahorroEnPesosAnio);
+    const aniosAhorrandoFormateado = aniosAhorrando.toFixed(2);
+
 
     const resultadoParrafo = document.getElementById("parrafoResultadoCalculoAhorro");
-    resultadoParrafo.innerText = "Los años que tardarías en ahorrar "  +  ahorroEnPesosValue + " Pesos Colombianos es: "  + aniosAhorrando + " Años";
+    resultadoParrafo.innerText = "Los años que tardarías en ahorrar "  +  ahorroEnPesosValueFormateado + " Pesos Colombianos es: "  + aniosAhorrandoFormateado + " Años";
 
     abrirVentanaModal();
 };
@@ -123,6 +138,7 @@ function calcularAhorroEnPorcentaje(){
 
     const ahorroPesosAnual = document.getElementById("inputAhorroTotal");
     const ahorroPesosAnualValue = ahorroPesosAnual.value;
+    const ahorroPesosAnualValueFormateado = formatoResultado(ahorroPesosAnualValue);
     
     const aniosAhorroMetaFinal = document.getElementById("inputAniosAhorroFinal");
     const aniosAhorroMetaFinalValue = aniosAhorroMetaFinal.value;
@@ -132,17 +148,55 @@ function calcularAhorroEnPorcentaje(){
 
     const salarioEurosAPesos = document.getElementById("inputSalarioEuros");
     const salarioEurosAPesosValue = salarioEurosAPesos.value;
+    const salarioEurosAPesosValueFormateado = formatoResultado(salarioEurosAPesosValue);
     const salarioEnPesosMensual = calcularPesosEnEuros(salarioEurosAPesosValue);
 
-    const porcentajeAhorroMetaFinal = ((ahorroPesosFinalMensual * 100) / salarioEnPesosMensual);
-    const resultadoParrafo = document.getElementById("parrafoResultadoCalculoAhorro");
+    const porcentajeAhorroMetaFinal = Math.round(((ahorroPesosFinalMensual * 100) / salarioEnPesosMensual));
 
-    resultadoParrafo.innerText = "El porcentaje de tu salario "  +  salarioEurosAPesosValue + " Euros, que debes ahorrar para alcanzar la meta de "  + ahorroPesosAnualValue + " Pesos Colombianos es del: " + porcentajeAhorroMetaFinal + "%";
+    const porcentajeAhorroFinalEuros = formatoResultado((porcentajeAhorroMetaFinal / 100 ) * salarioEurosAPesosValue); 
+    
+        if (porcentajeAhorroMetaFinal > 100){
+            
+            const resultadoParrafo = document.getElementById("parrafoResultadoCalculoAhorro");
+
+    resultadoParrafo.innerText = "Para alcanzar tu meta, es necesario que ahorres más dinero del que ganas con tu salario, " + porcentajeAhorroMetaFinal + "%, por la tanto tu meta no es alcanzable si conservas estos datos"         
+        } else {
+            const resultadoParrafo = document.getElementById("parrafoResultadoCalculoAhorro");
+
+            resultadoParrafo.innerText = "El porcentaje de tu salario de "  +  salarioEurosAPesosValueFormateado + " Euros, que debes ahorrar para alcanzar la meta de "  + ahorroPesosAnualValueFormateado + " de Pesos Colombianos, es del: " + porcentajeAhorroMetaFinal + "%, debes ahorrar " + porcentajeAhorroFinalEuros + " Euros mensuales"
+        }
 
     abrirVentanaModal();
 
     };
 
+
+    //Calcular el salario minimo que debe ganar para alcanzar meta de ahorro en el tiempo
+
+    function calcularSalarioMinimo() {
+        const metaAhorro = document.getElementById("inputAhorroTotal2");
+        const metaAhorroValue = metaAhorro.value;
+        const metaAhorroValueFormateado = formatoResultado(metaAhorroValue);        
+
+        const aniosMeta = document.getElementById("inputAniosAhorroFinal2");
+        const aniosMetaValue = aniosMeta.value;
+
+        const metaAhorroPorMes = ((metaAhorroValue / aniosMetaValue) / 12);
+        
+        const metaAhorroPorMesEuros = calcularEurosenPesos(metaAhorroPorMes);
+
+        const gastosEuros = document.getElementById("inputGastosEuros");
+        const gastosEurosValue = parseInt( gastosEuros.value);
+
+        const ingresosMinimosMensuales = (gastosEurosValue + metaAhorroPorMesEuros);
+        const ingresosMinimosMensualesDecimal = formatoResultado(Math.round(ingresosMinimosMensuales));
+
+        const resultadoParrafo = document.getElementById("parrafoResultadoCalculoAhorro");
+    resultadoParrafo.innerText = "Para alcanzar la meta de, "  +  metaAhorroValueFormateado + " Pesos Colombianos, es necesario que ganes Mínimo Mensualente: "  + ingresosMinimosMensualesDecimal + " Euros";
+
+    abrirVentanaModal();
+
+    };
 
     // Para el accordion
     var acc = document.getElementsByClassName("accordion");
@@ -162,4 +216,9 @@ for (i = 0; i < acc.length; i++) {
       panel.style.display = "block";
     }
   });
+};
+
+/* When the input field receives input, convert the value from Euros to Pesos colombianos */
+function euroConverter(valNum) {
+  document.getElementById("outputPesos").innerHTML = formatoResultado(valNum * 4346.27);
 }
