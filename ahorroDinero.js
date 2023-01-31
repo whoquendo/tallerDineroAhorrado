@@ -24,7 +24,7 @@ function calcularPesosEnEuros(eurosAConvertir){
 
 //Helper, función para convertir pesos a euros.
 function calcularEurosenPesos(pesosAConvertir){
-    let constEuro = 4081.28;
+    let constEuro = 4346.27;
     constEuroFormateado = formatoResultado(constEuro);
     const euros = (pesosAConvertir / constEuro);
     return euros;    
@@ -139,6 +139,7 @@ function calcularAhorroEnPorcentaje(){
     const ahorroPesosAnual = document.getElementById("inputAhorroTotal");
     const ahorroPesosAnualValue = ahorroPesosAnual.value;
     const ahorroPesosAnualValueFormateado = formatoResultado(ahorroPesosAnualValue);
+
     
     const aniosAhorroMetaFinal = document.getElementById("inputAniosAhorroFinal");
     const aniosAhorroMetaFinalValue = aniosAhorroMetaFinal.value;

@@ -8,6 +8,10 @@
     --result-red: #FD2F1A;
     --result-yellow: #FDF735;
     --green-button: #93F868;
+    --red-palette: #9c0100;
+    --red-light-palette: #D29BA1;
+    --blue-light-palette: #C4D4E1;
+    --blue-palette: #527791;
     --sm: 14px;
     --md: 16px;
     --lg: 18px;
@@ -23,13 +27,14 @@
     .nav-bar {
         width: 100%;
         height: 120px;
-        background-color: purple;
+        background-color: var(--red-palette);
         display: flex;
         align-items: center;
+        /* position: fixed; */
     }
 
     .navbar-parrafo{
-        color: var(--very-light-pink);
+        color: var(--blue-light-palette);
         font-size: var(--xl);
         margin-left: 15px;
     }
@@ -62,8 +67,9 @@
     }
 
     .notas {
+        padding: 1.5%;
         font-size: var(--sm);
-        color: var(--very-light-pink);
+        color: var(--red-light-palette);
         text-align: end;
     }
 
@@ -92,7 +98,7 @@
 
     .grid-container {
         display: flex;
-        justify-content: center;     
+        justify-content: center;
         /* padding: 0 0 30px 50px;  */
         flex-direction: column;
     }
@@ -103,7 +109,7 @@
         flex-direction: column;
         /* justify-content: center;  */
         align-items: center; 
-        width: 800px;
+        /* width: 800px; */
         /* height: 70vh; */
       padding: 20px;
       box-sizing: border-box;
@@ -111,16 +117,15 @@
       /* border-style: dotted; */
       border-radius: 5%;
     }   
-
     
 
         /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-    background-color: var(--green-button);
+    background-color: var(--red-light-palette);
     color: var(--black);
     cursor: pointer;
     /* padding: 18px; */
-    width: 100%;
+    /* width: 100%; */
     /* text-align: left; */
     border: none;
     outline: none;
@@ -130,26 +135,26 @@
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
   .active, .accordion:hover {
-    background-color: rgb(187, 228, 8);
+    background-color: var(--red-palette);
+    color: var(--white);
   }
   
   /* Style the accordion panel. Note: hidden by default */
   .panel {
     /* padding: 0 18px; */
-    background-color: rgb(167, 162, 162);
-    display: none;
+    background-color: var(--blue-palette);
     overflow: hidden;
     width: 100%;
+    display: none;
     /* flex-direction: column;
     justify-content: space-around; */
-    
   }
 
 
   .accordion:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
-    font-size: 13px;
-    color: #777;
+    font-size: 23px;
+    color: var(--white);
     float: inherit;
   }
   
@@ -163,17 +168,18 @@
         margin-top: 10px;
         margin-bottom: 10px;
         text-align: justify;
+        overflow: hidden;
+        text-overflow: ellipsis;
         }
 
         .form{
-            display: none;
+            /* display: flexbox; */
             /* flex-direction: column; 
             justify-content: space-evenly; */
-            align-items: start;
-            width: 60%;
-            height: 49vh;
+            justify-content: center;
+            width: 30%;
+            /* height: 49vh; */
             margin: 15px;
-            border-style: dotted;
             padding: 15px;
             border-radius: 25px;
         }
@@ -197,16 +203,17 @@
         }
 
         .primary-button{
-            background-color: var(--green-button);
+            background-color: var(--red-light-palette);
             color: var(--white);
             border: none;
             border-radius: 8px;
-            width: 98%;
+            width: 50%;
             cursor: pointer;
             font-size: var(--md);
             font-weight: bold;
             height: 50px;
             margin-bottom: 0px;
+            align-self: center;
         }
 
  
@@ -269,7 +276,7 @@
         .footer {
             width: 100%;
             height: 60px;
-            background-color: purple;
+            background-color: var(--red-palette);
             display: flex;
             grid-template-columns: 1fr;
             align-items: center;
@@ -280,7 +287,7 @@
 
         .footer p {
             margin-left: 20px;
-            color: var(--very-light-pink);
+            color: var(--blue-light-palette);
             font-size: var(--lg);
         }
 
@@ -324,6 +331,5 @@
              }   
            .form {
                width: 80%;
-               height: 60vh;
            }
         }
