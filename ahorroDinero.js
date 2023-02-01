@@ -200,24 +200,63 @@ function calcularAhorroEnPorcentaje(){
     };
 
     // Para el accordion
-    var acc = document.getElementsByClassName("accordion");
-var i;
+var btnAcc1 = document.querySelector('#accordionToggle1');
+var formAcc1 = document.querySelector('#formToggle1');
+var btnAcc2 = document.querySelector('#accordionToggle2');
+var formAcc2 = document.querySelector('#formToggle2');
+var btnAcc3 = document.querySelector('#accordionToggle3');
+var formAcc3 = document.querySelector('#formToggle3');
+var btnAcc4 = document.querySelector('#accordionToggle4');
+var formAcc4 = document.querySelector('#formToggle4');
+var btnAcc5 = document.querySelector('#accordionToggle5');
+var formAcc5 = document.querySelector('#formToggle5');
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
-    this.classList.toggle("active");
+btnAcc1.addEventListener('click', toggleAcc1);
+btnAcc2.addEventListener('click', toggleAcc2);
+btnAcc3.addEventListener('click', toggleAcc3);
+btnAcc4.addEventListener('click', toggleAcc4);
+btnAcc5.addEventListener('click', toggleAcc5);
 
-    /* Toggle between hiding and showing the active panel */
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-};
+function toggleAcc1 () {
+    formAcc1.classList.toggle('innactive');
+    formAcc2.classList.add('innactive');
+    formAcc3.classList.add('innactive');
+    formAcc4.classList.add('innactive');
+    formAcc5.classList.add('innactive');
+}
+
+function toggleAcc2 () {
+    formAcc1.classList.add('innactive');
+    formAcc2.classList.toggle('innactive');
+    formAcc3.classList.add('innactive');
+    formAcc4.classList.add('innactive');
+    formAcc5.classList.add('innactive');
+}
+
+function toggleAcc3 () {
+    formAcc1.classList.add('innactive');
+    formAcc2.classList.add('innactive');
+    formAcc3.classList.toggle('innactive');
+    formAcc4.classList.add('innactive');
+    formAcc5.classList.add('innactive');
+}
+
+function toggleAcc4 () {
+    formAcc1.classList.add('innactive');
+    formAcc2.classList.add('innactive');
+    formAcc3.classList.add('innactive');
+    formAcc4.classList.toggle('innactive');
+    formAcc5.classList.add('innactive');
+}
+
+function toggleAcc5 () {
+    formAcc1.classList.add('innactive');
+    formAcc2.classList.add('innactive');
+    formAcc3.classList.add('innactive');
+    formAcc4.classList.add('innactive');
+    formAcc5.classList.toggle('innactive');
+}
+
 
 /* When the input field receives input, convert the value from Euros to Pesos colombianos */
 function euroConverter(valNum) {

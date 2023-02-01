@@ -21,20 +21,19 @@
 
        <div class="container">
         <div class="notas">
-            <p>Los cálculos se hacen con TRM de $ 4.346,27</p>
-            <p>Todos los datos ingresados para los cálculos se consideran fijos en el tiempo</p>
-           <div class="converterEuros">
-            <h3>Conversor de Euros a Pesos Colombianos</h3>
-            <p>
-                <label>Euros</label>
-                <input id="inputEurosToConverter" type="number" placeholder="Cantidad de EUROS"
-                oninput="euroConverter(this.value)" onchange="euroConverter(this.value)">
-              </p>
-              <p>Pesos colombianos $: <span id="outputPesos"></span></p>
-            
-
-           </div>
-            
+            <div class="converterEuros">
+                <h3>Conversor de Euros a Pesos Colombianos</h3>
+                <p>
+                    <label>Euros</label>
+                    <input id="inputEurosToConverter" type="number" placeholder="Cantidad de EUROS"
+                    oninput="euroConverter(this.value)" onchange="euroConverter(this.value)">
+                  </p>
+                  <p>Pesos colombianos $: <span id="outputPesos"></span></p>
+            </div>
+            <ul>
+                <li>Los cálculos se hacen con TRM de $ 4.346,27</li>
+                <li>Todos los datos ingresados para los cálculos se consideran fijos en el tiempo</li>
+            </ul>           
 
         </div>
             <div class="parrafoTittle">
@@ -44,10 +43,10 @@
             
             <div class="grid-container">
                 <div class="grid-item">
-        <button class="accordion">
+        <button class="accordion" id="accordionToggle1">
             <p class="parrafo">Cantidad de ahorro, en Euros, que tendrías en determinado tiempo si ahorras el 20% de tu salario en Euros</p>
         </button>
-            <form action="/" class="form panel">
+            <form action="/" class="form panel innactive" id="formToggle1">
                 <label for="inputSalario" class="label">Ingrese su Salario (€)</label>
                 <input type="number" id="inputSalario" class="input" placeholder="€ Ingrese datos en EUROS">
 
@@ -59,10 +58,10 @@
             </div>
 
          <div class="grid-item">
-            <button class="accordion">
+            <button class="accordion" id="accordionToggle2">
             <p class="parrafo">Cantidad de ahorro, en Pesos colombianos, que tendrías en determinado tiempo si ahorras el 20% de tu salario en Euros</p> 
            </button>
-            <form action="/" class="form panel">
+            <form action="/" class="form panel innactive" id="formToggle2">
                 <label for="inputSalario2" class="label">Ingrese su Salario (€)</label>
                 <input type="number" id="inputSalario2" class="input" placeholder="€ Ingrese datos en EUROS">
 
@@ -75,10 +74,10 @@
             </div>
 
          <div class="grid-item">
-            <button class="accordion">
+            <button class="accordion" id="accordionToggle3">
             <p class="parrafo">Años que tardarías en ahorrar una cantidad de dinero en pesos colombianos ahorrando una cantidad de Euros Mensual</p> 
            </button>
-            <form action="/" class="form panel">
+            <form action="/" class="form panel innactive" id="formToggle3">
                 <label for="inputAhorro" class="label">Dinero en pesos que quieres ahorrar ($)</label>
                 <input type="number" id="inputAhorro" class="input" placeholder="$ Ingrese datos en pesos">
 
@@ -90,11 +89,11 @@
          </div>
 
 
-            <div class="grid-item">
+            <div class="grid-item" id="accordionToggle4">
                 <button class="accordion">
             <p class="parrafo">porcentaje de tu salario en Euros que debes ahorrar para cumplir tu meta de ahorro en Pesos colombianos.</p> 
             </button>
-            <form action="/" class="form panel">
+            <form action="/" class="form panel innactive" id="formToggle4">
                 <label for="inputAhorroTotal" class="label">Ingrese Dinero que quieres ahorrar ($)</label>
                 <input type="number" id="inputAhorroTotal" class="input" placeholder="$ Ingrese datos en pesos">
 
@@ -111,10 +110,10 @@
 
          
          <div class="grid-item">
-            <button class="accordion">
-        <p class="parrafo">Cantidad mínima de Salario, en Euros, que debes ganar para alcanzar tu meta</p> 
+            <button class="accordion" id="accordionToggle5">
+        <p class="parrafo">Cantidad mínima de Salario, en Euros, que debes ganar para alcanzar tu metas </p> 
         </button>
-        <form action="/" class="form panel">
+        <form action="/" class="form panel innactive" id="formToggle5">
             <label for="inputAhorroTotal2" class="label">Ingrese Dinero que quieres ahorrar ($)</label>
             <input type="number" id="inputAhorroTotal2" class="input" placeholder="$ Ingrese datos en pesos">
 

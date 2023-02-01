@@ -30,7 +30,6 @@
         background-color: var(--red-palette);
         display: flex;
         align-items: center;
-        /* position: fixed; */
     }
 
     .navbar-parrafo{
@@ -59,6 +58,10 @@
         flex-direction: column;
     }
 
+    .innactive {
+        display: none;
+    }
+
     .logo {
         width: 100px;
         margin-bottom: 8px;
@@ -67,10 +70,10 @@
     }
 
     .notas {
-        padding: 1.5%;
+        display: flex;
         font-size: var(--sm);
         color: var(--red-light-palette);
-        text-align: end;
+        justify-content: end;
     }
 
     .notas .converterEuros {
@@ -97,25 +100,18 @@
     }
 
     .grid-container {
-        display: flex;
-        justify-content: center;
-        /* padding: 0 0 30px 50px;  */
-        flex-direction: column;
+        display: grid;
+        row-gap: 50px;
+        grid-template-columns: auto auto auto;
+        background-color: var(--blue-light-palette);
+        padding: 10px;
     }
 
  
    .grid-item {
-        display: flex;
-        flex-direction: column;
-        /* justify-content: center;  */
-        align-items: center; 
-        /* width: 800px; */
-        /* height: 70vh; */
       padding: 20px;
-      box-sizing: border-box;
-      border: 1px;
-      /* border-style: dotted; */
-      border-radius: 5%;
+      font-size: 30px;
+      text-align: center;
     }   
     
 
@@ -124,13 +120,11 @@
     background-color: var(--red-light-palette);
     color: var(--black);
     cursor: pointer;
-    /* padding: 18px; */
-    /* width: 100%; */
-    /* text-align: left; */
     border: none;
     outline: none;
     transition: 0.4s;
     border-radius: 15px;
+    overflow: hidden;
   }
   
   /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -145,9 +139,6 @@
     background-color: var(--blue-palette);
     overflow: hidden;
     width: 100%;
-    display: none;
-    /* flex-direction: column;
-    justify-content: space-around; */
   }
 
 
@@ -173,12 +164,8 @@
         }
 
         .form{
-            /* display: flexbox; */
-            /* flex-direction: column; 
-            justify-content: space-evenly; */
             justify-content: center;
-            width: 30%;
-            /* height: 49vh; */
+            width: auto;
             margin: 15px;
             padding: 15px;
             border-radius: 25px;
@@ -225,7 +212,7 @@
 
       
         .resultado p {
-            background-color: var(--result-red);
+            background-color: var(--red-palette);
             color: var(--result-yellow);
             text-align: center;
             font-size: var(--xl);
@@ -248,7 +235,7 @@
 
           /* Modal Content/Box */
 .content-modal{
-    background-color: #CD2716;
+    background-color: var(--blue-light-palette);
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 0px solid #888;
@@ -257,7 +244,7 @@
 
   /* The Close Button */
 .close {
-    color: var(--very-light-pink);
+    color: var(--red-palette);
     float: right;
     font-size: 50px;
     font-weight: bold;
@@ -268,7 +255,7 @@
 
   .close:hover,
 .close:focus {
-  color: var(--green-button);
+  color: var(--blue-palette);
   text-decoration: none;
   cursor: pointer;
 }
@@ -298,6 +285,7 @@
 
             .notas {
                 text-align: center;
+                flex-direction: column;
             }
 
             .modal {
@@ -318,6 +306,7 @@
         
 
             .grid-container {
+                display: flex;
                flex-direction: column;
                place-items: center;
             }
