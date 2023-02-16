@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./ahorroDinero.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Ahorro de Dinero</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <img src="./assets/save_euro.jpg" alt="euro">
+        <div class="navbar-parrafo">
+        <p>PDA</p>
+        <P>Projection des économies d'argent</P>
+    </div>
+
+    <ul class="navbar-list-idiomas">
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">LANGUES</a>
+          <div class="dropdown-content">
+            <a href="./">ES</a>
+            <a href="./fr.html">FR</a>
+            <a href="./en.html">EN</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+       <div class="container">
+        <div class="notas">
+            <div class="converterEuros">
+                <h3>Convertisseur d'euros en pesos colombiens</h3>
+                <p>
+                    <label>Euros</label>
+                    <input id="inputEurosToConverter" type="number" placeholder="Montant d'EUROS"
+                    oninput="euroConverter(this.value)" onchange="euroConverter(this.value)">
+                  </p>
+                  <p>Pesos colombiens $: <span id="outputPesos"></span></p>
+            </div>
+            <ul>
+                <li>Les calculs sont effectués avec un TRM de 4 346,27 $</li>
+                <li>Toutes les données saisies pour les calculs sont considérées comme fixes dans le temps</li>
+            </ul>           
+
+        </div>
+            <div class="parrafoTittle">
+            <p>Dans cette application, vous pouvez le découvrir:<br>
+            </p>
+            </div>
+            
+            <div class="grid-container">
+                <div class="grid-item">
+        <button class="accordion" id="accordionToggle1">
+            <p class="parrafo">La somme d'argent que vous auriez épargnée après une certaine période, si vous épargnez 20% de votre salaire en euros (Résultat en euros)</p>
+        </button>
+            <form action="/" class="form panel innactive" id="formToggle1">
+                <label for="inputSalario" class="label">Entrez votre salaire (€)</label>
+                <input type="number" id="inputSalario" class="input" placeholder="€ Entrez les données en EUROS">
+
+                <label for="inputAnios" class="label">Indiquez le nombre d'années à consulter</label>
+                <input type="number" id="inputAnios" class="input" placeholder="Entrez le nombre d'années à sauvegarder">
+
+               <button type="button" class="primary-button calcular-button" onclick="calculoDeAhorroFr()">Calculer les économies</button>            
+            </form>
+            </div>
+
+         <div class="grid-item">
+            <button class="accordion" id="accordionToggle2">
+            <p class="parrafo">Montant d'argent que vous auriez épargné après une certaine période, si vous épargnez 20% de votre salaire en euros (Résultat en pesos colombiens)</p> 
+           </button>
+            <form action="/" class="form panel innactive" id="formToggle2">
+                <label for="inputSalario2" class="label">Entrez votre salaire (€)</label>
+                <input type="number" id="inputSalario2" class="input" placeholder="€ Entrez les données en EUROS">
+
+                <label for="inputAnios2" class="label">Indiquez le nombre d'années à consulter</label>
+                <input type="number" id="inputAnios2" class="input" placeholder="Entrez le nombre d'années à sauvegarder">
+               
+               <button type="button" class="primary-button calcular-button" onclick="calcularAhorroEnPesosFr()">Calculer les économies</button> 
+                   
+            </form>
+            </div>
+
+         <div class="grid-item">
+            <button class="accordion" id="accordionToggle3">
+            <p class="parrafo">Le nombre d'années nécessaires pour épargner une certaine somme d'argent en pesos colombiens, en économisant un montant d'euros chaque mois (résultat en pesos colombiens).</p> 
+           </button>
+            <form action="/" class="form panel innactive" id="formToggle3">
+                <label for="inputAhorro" class="label">Argent en pesos que vous voulez économiser ($)</label>
+                <input type="number" id="inputAhorro" class="input" placeholder="$ Entrez les données en pesos">
+
+                <label for="inputEuros" class="label">Entrez le montant des euros à économiser</label>
+                <input type="number" id="inputEuros" class="input" placeholder="€ Entrez les données en EUROS">
+
+               <button type="button" class="primary-button calcular-button" onclick="calcularAhorroEnPesosAñosFr()">Calculer les économies</button>            
+            </form>
+         </div>
+
+
+            <div class="grid-item">
+                <button class="accordion" id="accordionToggle4">
+            <p class="parrafo">Le pourcentage de votre salaire en euros que vous devez épargner, pour atteindre votre objectif d'épargne en pesos colombiens.</p> 
+            </button>
+            <form action="/" class="form panel innactive" id="formToggle4">
+                <label for="inputAhorroTotal" class="label">Entrez l'argent que vous voulez économiser ($)</label>
+                <input type="number" id="inputAhorroTotal" class="input" placeholder="$ Entrez les données en pesos">
+
+                <label for="inputSalarioEuros" class="label">Entrez votre salaire (€)</label>
+                <input type="number" id="inputSalarioEuros" class="input" placeholder="€ Entrez les données en EUROS">
+
+                <label for="inputAniosAhorroFinal" class="label">Indiquez le nombre d'années à consulter</label>
+                <input type="number" id="inputAniosAhorroFinal" class="input" placeholder="Entrez le nombre d'années à sauvegarder">
+
+               <button type="button" class="primary-button calcular-button" id="myBtn" onclick="calcularAhorroEnPorcentajeFr()">Calculer les économies</button>
+            </form>
+         </div>
+
+
+         
+         <div class="grid-item">
+            <button class="accordion" id="accordionToggle5">
+        <p class="parrafo">Le salaire en euros que vous devez gagner pour atteindre vos objectifs d'épargne en pesos colombiens</p> 
+        </button>
+        <form action="/" class="form panel innactive" id="formToggle5">
+            <label for="inputAhorroTotal2" class="label">Entrez l'argent que vous voulez économiser ($)</label>
+            <input type="number" id="inputAhorroTotal2" class="input" placeholder="$ Entrez les données en pesos">
+
+            <label for="inputGastosEuros" class="label">Entrez le total des dépenses mensuelles (€)</label>
+            <input type="number" id="inputGastosEuros" class="input" placeholder="€ Entrez les données en EUROS">
+
+            <label for="inputAniosAhorroFinal2" class="label">Indiquez le nombre d'années à consulter</label>
+            <input type="number" id="inputAniosAhorroFinal2" class="input" placeholder="Entrez le nombre d'années à sauvegarder">
+
+           <button type="button" class="primary-button calcular-button" id="myBtn" onclick="calcularSalarioMinimoFr()">Calculer les économies</button>            
+        </form>
+     </div>
+
+            </div>
+          
+            <section class="resultado modal" id="myModal">
+                <div class="content-modal">
+                    <span class="close">&times;</span>
+                    <p id="parrafoResultadoCalculoAhorro"></p>
+                </div>
+                
+            </section>
+            <footer class="footer">
+                <p>Application développée en 2022<br>
+                Bruxelles-Belgique
+            </p>
+            </footer>
+        </div>
+    </div>
+    
+
+</body>
+<script src="./ahorroDinero.js"></script>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./ahorroDinero.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Ahorro de Dinero</title>
+</head>
+<body>
+    <nav class="nav-bar">
+        <img src="./assets/save_euro.jpg" alt="euro">
+        <div class="navbar-parrafo">
+        <p>PDA</p>
+        <P>Projected Money Savings</P>
+    </div>
+
+    <ul class="navbar-list-idiomas">
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">LANGUAGES</a>
+          <div class="dropdown-content">
+            <a href="./">ES</a>
+            <a href="./fr.html">FR</a>
+            <a href="./en.html">EN</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+       <div class="container">
+        <div class="notas">
+            <div class="converterEuros">
+                <h3>Euro to Colombian Peso Converter</h3>
+                <p>
+                    <label>Euros</label>
+                    <input id="inputEurosToConverter" type="number" placeholder="Amount of EUROS"
+                    oninput="euroConverter(this.value)" onchange="euroConverter(this.value)">
+                  </p>
+                  <p>Colombian pesos $: <span id="outputPesos"></span></p>
+            </div>
+            <ul>
+                <li>Calculations are made with TRM of $ 4,346.27</li>
+                <li>All data entered for the calculations are considered fixed in time</li>
+            </ul>           
+
+        </div>
+            <div class="parrafoTittle">
+            <p>In this application, you can get to know: <br>
+            </p>
+            </div>
+            
+            <div class="grid-container">
+                <div class="grid-item">
+        <button class="accordion" id="accordionToggle1">
+            <p class="parrafo">The amount of money you would have saved after a certain period of time, if you save 20% of your salary in Euros (Result in Euros)</p>
+        </button>
+            <form action="/" class="form panel innactive" id="formToggle1">
+                <label for="inputSalario" class="label">Enter your Salary (€)</label>
+                <input type="number" id="inputSalario" class="input" placeholder="€ Enter data in EUROS">
+
+                <label for="inputAnios" class="label">Enter the number of years to consult</label>
+                <input type="number" id="inputAnios" class="input" placeholder="Enter number of years to save">
+
+               <button type="button" class="primary-button calcular-button" onclick="calculoDeAhorro()">Calculate Savings</button>            
+            </form>
+            </div>
+
+         <div class="grid-item">
+            <button class="accordion" id="accordionToggle2">
+            <p class="parrafo">Amount of money you would have saved after a certain time, if you save 20% of your salary in Euros (Result in Colombian Pesos)</p> 
+           </button>
+            <form action="/" class="form panel innactive" id="formToggle2">
+                <label for="inputSalario2" class="label">Enter your Salary (€)</label>
+                <input type="number" id="inputSalario2" class="input" placeholder="€ Enter data in EUROS">
+
+                <label for="inputAnios2" class="label">Enter the number of years to consult</label>
+                <input type="number" id="inputAnios2" class="input" placeholder="Enter number of years to save">
+               
+               <button type="button" class="primary-button calcular-button" onclick="calcularAhorroEnPesos()">Calculate Savings</button> 
+                   
+            </form>
+            </div>
+
+         <div class="grid-item">
+            <button class="accordion" id="accordionToggle3">
+            <p class="parrafo">The number of years you would need to save a certain amount of money in Colombian Pesos, saving an amount of Euros each month (Result in Colombian Pesos)</p> 
+           </button>
+            <form action="/" class="form panel innactive" id="formToggle3">
+                <label for="inputAhorro" class="label">Money in pesos you want to save ($)</label>
+                <input type="number" id="inputAhorro" class="input" placeholder="$ Enter data in pesos">
+
+                <label for="inputEuros" class="label">Enter the amount of Euros to save</label>
+                <input type="number" id="inputEuros" class="input" placeholder="€ Enter data in EUROS">
+
+               <button type="button" class="primary-button calcular-button" onclick="calcularAhorroEnPesosAños()">Calculate Savings</button>            
+            </form>
+         </div>
+
+
+            <div class="grid-item">
+                <button class="accordion" id="accordionToggle4">
+            <p class="parrafo">The percentage of your salary in Euros you need to save to achieve your savings goal in Colombian Pesos</p> 
+            </button>
+            <form action="/" class="form panel innactive" id="formToggle4">
+                <label for="inputAhorroTotal" class="label">Enter Money you want to save ($)</label>
+                <input type="number" id="inputAhorroTotal" class="input" placeholder="$ Enter data in pesos">
+
+                <label for="inputSalarioEuros" class="label">Enter your Salary (€)</label>
+                <input type="number" id="inputSalarioEuros" class="input" placeholder="€ Enter data in EUROS">
+
+                <label for="inputAniosAhorroFinal" class="label">Enter the number of years to consult</label>
+                <input type="number" id="inputAniosAhorroFinal" class="input" placeholder="Enter number of years to save">
+
+               <button type="button" class="primary-button calcular-button" id="myBtn" onclick="calcularAhorroEnPorcentaje()">Calculate Savings</button>
+            </form>
+         </div>
+
+
+         
+         <div class="grid-item">
+            <button class="accordion" id="accordionToggle5">
+        <p class="parrafo">The salary in Euros you need to earn to reach your savings goals in Colombian Pesos </p> 
+        </button>
+        <form action="/" class="form panel innactive" id="formToggle5">
+            <label for="inputAhorroTotal2" class="label">Enter Money you want to save ($)</label>
+            <input type="number" id="inputAhorroTotal2" class="input" placeholder="$ Enter data in pesos">
+
+            <label for="inputGastosEuros" class="label">Enter total monthly expenses (€)</label>
+            <input type="number" id="inputGastosEuros" class="input" placeholder="€ Enter data in EUROS">
+
+            <label for="inputAniosAhorroFinal2" class="label">Enter the number of years to consult</label>
+            <input type="number" id="inputAniosAhorroFinal2" class="input" placeholder="Enter number of years to save">
+
+           <button type="button" class="primary-button calcular-button" id="myBtn" onclick="calcularSalarioMinimo()">Calculate Savings</button>
+        </form>
+     </div>
+
+            </div>
+          
+            <section class="resultado modal" id="myModal">
+                <div class="content-modal">
+                    <span class="close">&times;</span>
+                    <p id="parrafoResultadoCalculoAhorro"></p>
+                </div>
+                
+            </section>
+            <footer class="footer">
+                <p>Application developed in 2022<br>
+                Brussels-Belgium
+            </p>
+            </footer>
+        </div>
+    </div>
+    
+
+</body>
+<script src="./ahorroDinero.js"></script>
+</html>
